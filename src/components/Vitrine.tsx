@@ -4,6 +4,7 @@ interface Produto {
   id: number;
   nome: string;
   preco: number;
+  precoDesconto?: number;
   estoque: number;
 }
 
@@ -13,6 +14,7 @@ export function Vitrine() {
       id: 1,
       nome: "Smartphone",
       preco: 3500,
+      precoDesconto: 3000,
       estoque: 15,
     },
     {
@@ -41,8 +43,25 @@ export function Vitrine() {
           }}
         >
           <h3>{produto.nome}</h3>
-          <p>R$ {produto.preco}</p>
           <p>Estoque: {produto.estoque}</p>
+          {produto.precoDesconto ? (
+            <div>
+              <span
+                style={{
+                  textDecoration: "line-through",
+                  color: "red",
+                  marginRight: "10px",
+                }}
+              >
+                R$ {produto.preco}
+              </span>
+              <span style={{ color: "green", fontWeight: "bold" }}>
+                R$ {produto.precoDesconto}
+              </span>
+            </div>
+          ) : (
+            <p>R$ {produto.preco}</p>
+          )}
         </div>
       ))}
     </div>
