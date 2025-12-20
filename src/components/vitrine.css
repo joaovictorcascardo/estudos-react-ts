@@ -1,6 +1,5 @@
-.produtos{
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    
+.produtos {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
